@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { AddDeliveryComponent } from './add-delivery/add-delivery.component';
 import { ViewDeliveryComponent } from './view-delivery/view-delivery.component';
 import { PaymentComponent } from './payment/payment.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { PaymentComponent } from './payment/payment.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

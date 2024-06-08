@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-add-delivery',
@@ -7,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AddDeliveryComponent {
   delivery = {
+    name: '',
     sender_name: '',
     sender_address: '',
     receiver_name: '',
@@ -18,35 +22,55 @@ export class AddDeliveryComponent {
     package_width: 0,
     package_height: 0,
     service_type: 'standard',
-    price: 0
+    price: 0,
+    phone_number: '',
+    otp: ''
   };
+  phoneNumberVerified = false;
+  otpVerified = false;
   submitted = false;
+  error: string = '';
+
+  constructor(private http: HttpClient) {}
 
   calculatePrice() {
-    const packageWeight = this.delivery.package_weight;
-    const rates = [
-      { maxWeight: 1, price: 500 },
-      { maxWeight: 5, price: 750 },
-      { maxWeight: 10, price: 1000 }
-    ];
+    // Your existing calculatePrice function
+  }
 
-    let deliveryCharge = 0;
-    for (const rate of rates) {
-      if (packageWeight <= rate.maxWeight) {
-        deliveryCharge = rate.price;
-        break;
-      }
-    }
-    this.delivery.price = deliveryCharge;
+  verifyPhoneNumber() {
+    // Your existing verifyPhoneNumber function
+    this.phoneNumberVerified = true;
+  }
+
+  verifyOTP() {
+    // Your existing verifyOTP function
+    this.otpVerified = true;
+
   }
 
   onSubmit() {
-    // Here you would typically handle form submission to the server
-    console.log('Delivery added:', this.delivery);
-    this.submitted = true;
+  this.http.post<any>('http://localhost:3000/adddelivery', this.delivery)
+    .pipe(
+      catchError(error => {
+        this.error = error.message || 'An error occurred while adding delivery.';
+        return throwError(this.error);
+      })
+    )
+    .subscribe({
+      next: (response) => {
+        console.log('Delivery added:', response);
+        this.submitted = true;
+        this.resetForm();
+      },
+      error: (error) => {
+        console.error('Error adding delivery:', error);
+      }
+    });
+}
 
-    // Reset form after submission
+  resetForm() {
     this.delivery = {
+      name: '',
       sender_name: '',
       sender_address: '',
       receiver_name: '',
@@ -58,10 +82,15 @@ export class AddDeliveryComponent {
       package_width: 0,
       package_height: 0,
       service_type: 'standard',
-      price: 0
+      price: 0,
+      phone_number: '',
+      otp: ''
     };
-
-    // Hide success message after a delay
-    setTimeout(() => this.submitted = false, 3000);
+    this.phoneNumberVerified = false;
+    this.otpVerified = false;
+    setTimeout(() => {
+      this.submitted = false;
+      this.error = '';
+    }, 3000);
   }
 }

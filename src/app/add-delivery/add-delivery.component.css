@@ -1,31 +1,31 @@
-body {
-  background-color: #343a40;
-  color: #f8f9fa;
-}
+/* Styles for Add New Delivery Form */
 
 .container {
-  margin-top: 5rem;
-}
-
-h2 {
-  color: #f8f9fa;
+  max-width: 800px;
 }
 
 .form-label {
-  color: #f8f9fa;
+  font-weight: bold;
+  color:black;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
 .btn-outline-primary {
-  border-color: #007bff;
   color: #007bff;
+  border-color: #007bff;
 }
 
 .btn-outline-primary:hover {
+  color: #fff;
   background-color: #007bff;
-  color: #fff;
-}
-
-.alert-success {
-  background-color: #28a745;
-  color: #fff;
+  border-color: #007bff;
 }

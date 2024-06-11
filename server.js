@@ -68,6 +68,19 @@ app.post('/adddelivery', async (req, res) => {
     }
 });
 
+
+// API endpoint for retrieving all deliveries
+app.get('/deliveries', async (req, res) => {
+    try {
+        const deliveries = await Delivery.find();
+        res.status(200).json(deliveries);
+    } catch (error) {
+        console.error('Error retrieving deliveries:', error);
+        res.status(500).send('Error retrieving deliveries');
+    }
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

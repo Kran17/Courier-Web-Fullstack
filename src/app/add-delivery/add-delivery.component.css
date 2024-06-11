@@ -1,31 +1,4 @@
-/* Styles for Add New Delivery Form */
-
-.container {
-  max-width: 800px;
-}
-
-.form-label {
-  font-weight: bold;
-  color:black;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.btn-primary:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
-
-.btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
-}
-
-.btn-outline-primary:hover {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
+.div {
+    background-color: #000000;
+  }
+  

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeliveryService, Delivery } from '../delivery.service';
 
 @Component({
   selector: 'app-view-delivery',
@@ -6,13 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-delivery.component.css']
 })
 export class ViewDeliveryComponent implements OnInit {
-  deliveries = [
-    { name: 'Package 1', date: '2024-06-01' },
-    { name: 'Package 2', date: '2024-06-02' }
-  ];
+  deliveries: Delivery[] = [];
 
-  constructor() { }
+  constructor(private deliveryService: DeliveryService) { }
 
   ngOnInit(): void {
+    this.fetchDeliveries();
+  }
+
+  fetchDeliveries(): void {
+    this.deliveryService.getDeliveries().subscribe(
+      (data: Delivery[]) => {
+        this.deliveries = data;
+      },
+      (error) => {
+        console.error('Error fetching deliveries:', error);
+      }
+    );
   }
 }

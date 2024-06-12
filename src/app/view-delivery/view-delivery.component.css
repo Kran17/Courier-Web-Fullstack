@@ -1,33 +1,4 @@
-/*body {
-  background-color: #000000;
-}*/
 
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #333;
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  padding: 14px 20px;
-  display: block;
-}
-
-nav ul li a:hover {
-  background-color: #111;
-}
-
-nav ul li .brand {
-  color: #7b07e8;
-}
 .full-height-container {
   height: 100vh; /* Full viewport height */
   background-color: #2c2e30; /* Light background for the container */

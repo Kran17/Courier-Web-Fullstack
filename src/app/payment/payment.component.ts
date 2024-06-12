@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {GooglePayButtonModule} from '@google-pay/button-angular';
+import { Delivery } from '../delivery.service';import { ActivatedRoute } from '@angular/router';
+
+
 @Component({
   standalone: true,
   imports: [GooglePayButtonModule],
@@ -7,7 +11,17 @@ import {GooglePayButtonModule} from '@google-pay/button-angular';
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
 })
-export class PaymentComponent {
+export class PaymentComponent implements OnInit {
+  constructor(private router: Router) { }
+  delivery: Delivery | undefined;
+
+  ngOnInit(): void {
+    this.delivery = history.state.delivery;
+  
+  }
+   navigateToOrders(): void {
+    this.router.navigate(['/orders']);
+  }
   buttonWidth = 240
   
   paymentRequest : google.payments.api.PaymentDataRequest ={

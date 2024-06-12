@@ -9,6 +9,9 @@ import { ViewDeliveryComponent } from './view-delivery/view-delivery.component';
 import { PaymentComponent } from './payment/payment.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OrdersComponent } from './orders/orders.component';
+import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+
 
 
 
@@ -19,12 +22,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     AddDeliveryComponent,
     ViewDeliveryComponent,
     NavbarComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

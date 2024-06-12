@@ -1,4 +1,6 @@
 <p>payment works!</p>
+<button class="btn btn-primary" (click)="navigateToOrders()">Next</button>
+
 <div class="wrapper">
     <google-pay-button
         environment="TEST"
@@ -8,5 +10,5 @@
         (loadpaymentdata)="onLoadPaymentData($event)">
 
     </google-pay-button>
-    
+    <!-- payment.component.html -->
 </div>

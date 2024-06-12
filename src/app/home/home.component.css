@@ -1,20 +1,22 @@
-.bg-image{
-  background-image: url('assets/background.jpg') ;
-  background-repeat: no-repeat;
-  height: 1200px;
-  width:1000px;
-  
+
+.div1{
+   margin-left: 200px;
+   margin-top: 300px;
+   float: left;
+   height: 400PX;
+   width: 500px;
 }
 
-  
-  #Services img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  #contact {
-    padding: 20px;
-    color: white;
-  }
-  
+
+.image-container {
+  margin-top: 50;
+  margin-left: 800px;
+  width: 900; /* Set the width of the container */
+  height: 900; /* Set the height of the container */
+  overflow: hidden; /* Hide any overflow */
+}
+.image-container img {
+  width: 100%; /* Make the image fill the container horizontally */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Make sure it's a block element */
+}

@@ -1,13 +1,17 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<div class="container">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><div class="container mt-5 md-7 p-5">
 <form (ngSubmit)="onSubmit()" class="row g-3 " >
           <div class="row">
-            <div class="col-g-3">
+            <div class="col">
               <input type="text" id = "name" name="name" class="form-control" placeholder="name" aria-label="name" [(ngModel)]="delivery.name"
               required
             />
+            <button *ngIf="!phoneNumberVerified" type="button" class="btn btn-primary" (click)="verifyPhoneNumber()" id="button-addon1">Verify</button>
+            <div *ngIf="phoneNumberVerified && !otpVerified">
+              <button type="button" class="btn btn-primary" (click)="verifyOTP()">Verify OTP</button>
+            </div>
             </div>
             <div class="col-md-6">
               <input type="text"id="phone_number"
@@ -17,7 +21,6 @@
               [(ngModel)]="delivery.phone_number"
               required
             />
-            <button *ngIf="!phoneNumberVerified" type="button" class="btn btn-primary" (click)="verifyPhoneNumber()" id="button-addon1">Verify</button>
             </div>
           <div class="col">
             <div *ngIf="phoneNumberVerified && !otpVerified">
@@ -30,7 +33,6 @@
                 [(ngModel)]="delivery.otp"
                 required
             />
-            <button type="button" class="btn btn-primary" (click)="verifyOTP()">Verify OTP</button>
           </div>
           </div>
 
@@ -149,7 +151,7 @@
                 />
               </div>
               <div class="col-md-6 g-6">
-                <select class="form-select form-select-lg mb-3" title="Select the service type">
+                <select class="form-select form-select mb-3" title="Select the service type">
                   id="service_type"
                   name="service_type"
                   [(ngModel)]="delivery.service_type"

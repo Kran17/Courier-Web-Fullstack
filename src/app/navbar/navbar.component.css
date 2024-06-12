@@ -1,29 +1,51 @@
+/* component.scss */
+
 nav {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-    margin-top: 0px;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  nav ul li {
-    margin: 15px 15px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  margin-top: 0px;
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  backdrop-filter: blur(30px); /* Add the backdrop-filter property for blur effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-bottom: 2px solid #ccc; /* Add a border at the bottom */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 15px 15px;
+}
+
+nav ul li a {
+  color: #333; /* Darker color for better readability */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth color transition */
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+nav ul li a:hover {
+  color: violet; /* Violet color on hover */
+}
+
+nav ul li a:hover::after {
+  background-color: violet; /* Violet underline color on hover */
+}

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Delivery {
+    status: any;
     _id: string;
     name: string;
     sender_name: string;

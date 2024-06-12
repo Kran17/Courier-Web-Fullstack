@@ -2,21 +2,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <!-- view-delivery.component.html -->
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-7">
     <div class="card mb-4 shadow-sm" *ngIf="deliveries.length > 0">
       <div class="card-body">
         <h5 class="card-title">{{ deliveries[0].name }}</h5>
-        <p class="card-text">Sender Name: {{ deliveries[0].sender_name }}</p>
-        <p class="card-text">Receiver Name: {{ deliveries[0].receiver_name }}</p>
         <p class="card-text">Package Name: {{ deliveries[0].packagename }}</p>
-        <p class="card-text">Package Description: {{ deliveries[0].package_description }}</p>
-        <p class="card-text">Package Weight: {{ deliveries[0].package_weight }} kg</p>
-        <p class="card-text">Service Type: {{ deliveries[0].service_type }}</p>
-        <p class="card-text">Price: {{ deliveries[0].price | currency }}</p>
-        <p class="card-text">Phone Number: {{ deliveries[0].phone_number }}</p>
-        <p class="card-text">OTP: {{ deliveries[0].otp }}</p>
-        <button class="btn btn-primary" (click)="proceedToPayment(deliveries[0])">Proceed to Payment</button>
-      </div>
+        <p class = "card-text"> from: {{ deliveries[0].sender_address}} to: {{ deliveries[0].receiver_address}}</p>
+        <div class="order-tracking">
+          <div class="step active">Order Placed</div>
+          <div class="step">Processing</div>
+          <div class="step">Shipped</div>
+          <div class="step">Out for Delivery</div>
+          <div class="step">Delivered</div>
+        </div>
+        
     </div>
     <div *ngIf="deliveries.length === 0" class="alert alert-warning text-center">
       <p>No deliveries found.</p>

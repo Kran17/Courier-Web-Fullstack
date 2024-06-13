@@ -80,6 +80,29 @@ app.get('/deliveries', async (req, res) => {
     }
 });
 
+// API endpoint for deleting a delivery
+app.delete('/deletedelivery/:id', async (req, res) => {
+    try {
+        const deliveryId = req.params.id;
+        await Delivery.findByIdAndDelete(deliveryId);
+        res.status(200).send({ message: 'Delivery deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting delivery:', error);
+        res.status(500).send('Error deleting delivery');
+    }
+});
+// API endpoint for updating a delivery
+app.put('/updatedelivery/:id', async (req, res) => {
+    try {
+        const deliveryId = req.params.id;
+        const updatedData = req.body;
+        await Delivery.findByIdAndUpdate(deliveryId, updatedData, { new: true });
+        res.status(200).send({ message: 'Delivery updated successfully' });
+    } catch (error) {
+        console.error('Error updating delivery:', error);
+        res.status(500).send('Error updating delivery');
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

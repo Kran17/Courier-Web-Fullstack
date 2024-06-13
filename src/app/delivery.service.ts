@@ -33,4 +33,11 @@ export class DeliveryService {
     getDeliveries(): Observable<Delivery[]> {
         return this.http.get<Delivery[]>(this.apiUrl);
     }
+    deleteDelivery(id: string): Observable<any> {
+        return this.http.delete(`${this.apiUrl}/deletedelivery/${id}`);
+      }
+    
+      updateDelivery(id: string, data: any): Observable<any> {
+        return this.http.put(`${this.apiUrl}/updatedelivery/${id}`, data);
+      }
 }

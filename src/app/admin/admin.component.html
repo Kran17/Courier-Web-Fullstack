@@ -1,0 +1,33 @@
+<h2>Delivery Management</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Package</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let delivery of deliveries">
+            <td>{{ delivery.name }}</td>
+            <td>{{ delivery.sender_name }}</td>
+            <td>{{ delivery.receiver_name }}</td>
+            <td>{{ delivery.packagename }}</td>
+            <td>
+                <button (click)="deleteDelivery(delivery._id)">Delete</button>
+                <button (click)="editDelivery(delivery)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="selectedDelivery">
+    <h3>Edit Delivery</h3>
+    <form (ngSubmit)="updateDelivery()">
+        <input [(ngModel)]="selectedDelivery.name" name="name" placeholder="Name">
+        <input [(ngModel)]="selectedDelivery.sender_name" name="sender_name" placeholder="Sender Name">
+        <!-- Add more input fields as needed -->
+        <button type="submit">Update</button>
+    </form>
+</div>

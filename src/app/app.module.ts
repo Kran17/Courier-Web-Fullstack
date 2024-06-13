@@ -10,7 +10,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { OrdersComponent } from './orders/orders.component';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component'; // Import ReactiveFormsModule
 
 
 
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsMod
     ViewDeliveryComponent,
     NavbarComponent,
     OrdersComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
